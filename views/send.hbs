@@ -1,0 +1,22 @@
+<div class="container">
+  <form class="send-form" action="/send" method="POST">
+    {{#if success}}
+      <p class="success">Transaction successful</p>
+    {{/if}}
+    {{#if selfSend}}
+      <p class="alert-info">This is your public key you cant send coins to your
+        account</p>
+    {{/if}}
+    <label for="receiver">Receiver's public key</label>
+    <input type="text" name="receiver" id="receiver" required />
+    {{#if noReceiver}}
+      <p class="error">Receiver not found</p>
+    {{/if}}
+    <label for="amount">Amount</label>
+    <input type="number" id="amount" name="amount" />
+    {{#if notEnoughBalance}}
+      <p class="error">Not enough balance</p>
+    {{/if}}
+    <button type="submit">Send</button>
+  </form>
+</div>

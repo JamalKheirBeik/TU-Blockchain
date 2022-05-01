@@ -1,0 +1,38 @@
+<div class="container">
+  <form class="signup-form" action="/signup" method="POST">
+    <h1>Join the community</h1>
+    {{#if privateKey}}
+      <h2>This is your private key (username) copy it to a text file on your
+        machine</h2>
+      <textarea
+        id="privateKeyHolder"
+        class="privateKeyHolder"
+        readonly
+      >{{privateKey}}</textarea>
+      <button id="clipboard">Copy to clipboard</button>
+    {{/if}}
+    <img src="../images/signup.svg" alt="Signup" />
+    <p>all you have to do is create a strong password, your username will be
+      created after you submit the password</p>
+    <p class="warning">VERY IMPORTANT: MAKE SURE TO SAVE THE USERNAME (PRIVATE
+      KEY) ON A TEXT FILE ON YOUR DEVICE AND DONT SHARE IT WITH ANYONE</p>
+    <div class="inputs">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" required />
+      {{#if emailError}}
+      <p class="alert-danger">{{emailError}}</p>
+      {{/if }}
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" required />
+      {{#if passwordError }}
+        <p class="alert-danger">{{ passwordError }}</p>
+      {{/if  }}
+      <label for="passwordConfirm">Confirm Password</label>
+      <input id="passwordConfirm" type="password" name="passwordConfirm" required />
+      {{#if confirmError }}
+        <p class="alert-danger">{{ confirmError }}</p>
+      {{/if  }}
+      <button type="submit">Signup</button>
+    </div>
+  </form>
+</div>

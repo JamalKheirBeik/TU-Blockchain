@@ -1,0 +1,53 @@
+<div class="container user-profile">
+  <div class="balance">
+    <h1>Balance</h1>
+    <h3>{{balance}}</h3>
+  </div>
+  <div class="info">
+    <div class="item">
+      <h1>Public Key</h1>
+      <textarea
+        id="publicKeyHolder"
+        name="publicKey"
+        id="publicKey"
+        readonly
+      >{{publicKey}}</textarea>
+      <br />
+      <button id="clipboard">Copy to clipboard</button>
+    </div>
+    <div class="item">
+      <h1>Private Key</h1>
+      <textarea
+        id="privateKeyHolder"
+        name="privateKey"
+        id="privateKey"
+        readonly
+      >{{username}}</textarea>
+      <br />
+      <button id="clipboard">Copy to clipboard</button>
+    </div>
+  </div>
+  <h1>Transactions History</h1>
+  {{#if history}}
+    <table class="transactions-history">
+      <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+      {{#each history}}
+        <tr>
+          {{#with this}}
+            <td>{{Sender}}</td>
+            <td>{{Receiver}}</td>
+            <td>{{Amount}}</td>
+            <td>{{Created_At}}</td>
+          {{/with}}
+        </tr>
+      {{/each}}
+    </table>
+  {{else}}
+    <p class="alert-info">you didnt send or receive and coins</p>
+  {{/if}}
+</div>

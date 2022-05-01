@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="send-form">
+    <label for="numberOfCoins">Number of coins</label>
+    <input type="number" min="1" name="numberOfCoins" id="numberOfCoins" />
+    <p class="error">Total price: <span id="totalPrice"></span>0</p>
+    <button type="button" id="checkout-button">Buy</button>
+  </div>
+</div>
+<script
+  src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"
+></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+  var stripe =
+  Stripe("pk_test_51J58gsIrJMcWuTnaBzSVNuDeKXpRrEhGhHI4hUc31AUz2SXYmkdiXZeuLHLga3VXSJESQkcSlmKwItIbMJpjXaLC009uiNiFd7");
+  var checkoutButton = document.getElementById("checkout-button");
+  checkoutButton.addEventListener("click", function () { fetch("/buy", { method:
+  "POST", }) .then(function (response) { return response.json(); })
+  .then(function (session) { return stripe.redirectToCheckout({ sessionId:
+  session.id }); }) .then(function (result) { if (result.error) {
+  alert(result.error.message); } }) .catch(function (error) {
+  console.error("Error:", error); }); });
+</script>

@@ -1,0 +1,26 @@
+<div class="container">
+  {{#if transactions}}
+    <table>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Sender Public Key</th>
+        <th>Receiver Public Key</th>
+        <th>Amount</th>
+        <th>Created At</th>
+      </tr>
+      {{#each transactions}}
+        <tr>
+          {{#with this}}
+            <td>{{ID}}</td>
+            <td>{{Sender}}</td>
+            <td>{{Receiver}}</td>
+            <td>{{Amount}}</td>
+            <td>{{Created_At}}</td>
+          {{/with}}
+        </tr>
+      {{/each}}
+    </table>
+  {{else}}
+    <p class="alert-info">There is no records.</p>
+  {{/if}}
+</div>

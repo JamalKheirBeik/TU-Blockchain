@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../images/coin.png" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>TU Blockchain</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <ul class="nav-links">
+        <li>
+          <a href="/"><img
+              src="../images/coin.png"
+              class="logo"
+              alt="TU Blockchain Logo"
+            />
+          </a>
+        </li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      {{#if loggedIn}}
+        <div class="avatar">
+          <img src="../images/avatar.svg" alt="User" />
+          <ul class="dropdown">
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      {{else}}
+        <ul class="nav-buttons">
+          <li><a href="/login" class="login-btn">Login</a></li>
+          <li><a href="/signup" class="signup-btn">Signup</a></li>
+        </ul>
+      {{/if}}
+    </div>
+    {{{body}}}
+    <footer>
+      <p>TU Blockchain 2021&copy;</p>
+    </footer>
+    {{! Animate on scroll }}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="../js/functions.js"></script>
+  </body>
+</html>

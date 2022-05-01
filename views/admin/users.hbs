@@ -1,0 +1,28 @@
+<div class="container">
+  {{#if users}}
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Public Key</th>
+        <th>Private Key</th>
+        <th>Password</th>
+        <th>Balance</th>
+        <th>Successful Minings</th>
+      </tr>
+      {{#each users}}
+        <tr>
+          {{#with this}}
+            <td>{{ID}}</td>
+            <td>{{Public_Key}}</td>
+            <td>{{Private_Key}}</td>
+            <td>{{Password}}</td>
+            <td>{{Balance}}</td>
+            <td>{{Successful_Minings}}</td>
+          {{/with}}
+        </tr>
+      {{/each}}
+    </table>
+  {{else}}
+    <p class="alert-info">There is no records.</p>
+  {{/if}}
+</div>

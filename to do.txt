@@ -1,0 +1,5 @@
+todo: send an email to the receiver when the sending process is done (nodemailer)
+todo: add online payment for buying coins
+todo: use node file system to automatically store the private key in a text file on the user computer when signing up
+todo: create emails table and allow admin to read and reply to these messages
+todo: use express-validator to sanitize inputs instead of manually doing it & remove body parser
